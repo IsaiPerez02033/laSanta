@@ -24,8 +24,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed left-1/2 top-4 z-[60] w-[92%] max-w-4xl -translate-x-1/2 rounded-full border transition-all duration-500 sm:top-6 ${
-        scrolled
+      className={`fixed left-1/2 top-4 z-[60] w-[92%] max-w-4xl -translate-x-1/2 overflow-hidden border transition-all duration-500 sm:top-6 ${
+        open ? "rounded-3xl" : "rounded-full"
+      } ${
+        scrolled || open
           ? "border-white/25 bg-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-md"
           : "border-transparent bg-transparent"
       }`}
@@ -67,12 +69,12 @@ export default function Navbar() {
           <div className="flex flex-col gap-1.5">
             <span
               className={`block h-px w-5 bg-current transition-transform duration-300 ${
-                open ? "translate-y-[3px] rotate-45" : ""
+                open ? "translate-y-[1.5px] rotate-45" : ""
               }`}
             />
             <span
               className={`block h-px w-5 bg-current transition-transform duration-300 ${
-                open ? "-translate-y-[3px] -rotate-45" : ""
+                open ? "-translate-y-[1.5px] -rotate-45" : ""
               }`}
             />
           </div>
