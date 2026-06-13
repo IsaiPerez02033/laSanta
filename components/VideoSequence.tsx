@@ -185,16 +185,17 @@ export default function VideoSequence() {
       </div>
 
       {/* Scene texts */}
-      <div className="absolute inset-0 z-10 flex items-end pb-20 sm:items-center sm:justify-start sm:pb-0">
-        <div className="relative w-full px-5 sm:px-10 lg:px-20">
+      <div className="absolute inset-x-0 bottom-20 z-10 px-5 sm:inset-0 sm:flex sm:items-center sm:justify-start sm:bottom-auto sm:px-10 lg:px-20">
+        <div className="relative w-full sm:w-full">
           {scenes.map((scene, i) => (
             <div
               key={scene.title}
               ref={(el) => {
                 textRefs.current[i] = el;
               }}
-              className="absolute max-w-[88%] sm:max-w-xl"
-              style={{ position: i === 0 ? "relative" : "absolute" }}
+              className={`absolute inset-x-0 bottom-0 max-w-[88%] sm:inset-auto sm:bottom-auto sm:max-w-xl ${
+                i === 0 ? "sm:relative" : "sm:absolute"
+              }`}
             >
               <p className="mb-2 text-xs font-medium uppercase tracking-widest2 text-ember-400 sm:mb-3 sm:text-sm">
                 {String(i + 1).padStart(2, "0")} / {String(numScenesLabel)}
