@@ -163,7 +163,7 @@ export default function VideoSequence() {
       <div className="vignette" />
 
       {/* Extra bottom gradient for text legibility on phones */}
-      <div className="absolute inset-x-0 bottom-0 z-[5] h-1/2 bg-gradient-to-t from-black/80 via-black/30 to-transparent sm:hidden" />
+      <div className="absolute inset-x-0 bottom-0 z-[5] h-2/3 bg-gradient-to-t from-black/95 via-black/60 to-transparent sm:hidden" />
 
       {/* Watermark cover */}
       <div className="absolute left-[91%] top-[86%] z-30 h-20 w-20 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-md sm:h-28 sm:w-28">
@@ -202,7 +202,7 @@ export default function VideoSequence() {
               <h2 className="scene-text font-display text-3xl leading-[1.1] tracking-wide text-stone-50 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
                 {scene.title}
               </h2>
-              <p className="scene-text mt-3 max-w-md text-sm font-light text-stone-300 sm:mt-4 sm:text-base lg:text-lg">
+              <p className="scene-text mt-3 max-w-md text-sm font-light text-stone-200 sm:mt-4 sm:text-base lg:text-lg">
                 {scene.subtitle}
               </p>
             </div>
