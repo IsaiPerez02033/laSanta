@@ -162,8 +162,9 @@ export default function VideoSequence() {
 
       <div className="vignette" />
 
-      {/* Extra bottom gradient for text legibility on phones */}
-      <div className="absolute inset-x-0 bottom-0 z-[5] h-2/3 bg-gradient-to-t from-black/95 via-black/60 to-transparent sm:hidden" />
+      {/* Extra dark overlay + bottom gradient for text legibility on phones */}
+      <div className="absolute inset-0 z-[5] bg-black/30 sm:hidden" />
+      <div className="absolute inset-x-0 bottom-0 z-[5] h-3/4 bg-gradient-to-t from-black via-black/70 to-transparent sm:hidden" />
 
       {/* Watermark cover */}
       <div className="absolute left-[91%] top-[86%] z-30 h-20 w-20 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-md sm:h-28 sm:w-28">
@@ -185,7 +186,7 @@ export default function VideoSequence() {
       </div>
 
       {/* Scene texts */}
-      <div className="absolute inset-x-0 bottom-20 z-10 px-5 sm:inset-0 sm:flex sm:items-center sm:justify-start sm:bottom-auto sm:px-10 lg:px-20">
+      <div className="absolute inset-x-0 bottom-24 z-10 px-5 sm:inset-0 sm:flex sm:items-center sm:justify-start sm:bottom-auto sm:px-10 lg:px-20">
         <div className="relative w-full sm:w-full">
           {scenes.map((scene, i) => (
             <div
@@ -193,17 +194,17 @@ export default function VideoSequence() {
               ref={(el) => {
                 textRefs.current[i] = el;
               }}
-              className={`absolute inset-x-0 bottom-0 max-w-[88%] sm:inset-auto sm:bottom-auto sm:max-w-xl ${
+              className={`absolute inset-x-0 bottom-0 max-w-[90%] sm:inset-auto sm:bottom-auto sm:max-w-xl ${
                 i === 0 ? "sm:relative" : "sm:absolute"
               }`}
             >
               <p className="mb-2 text-xs font-medium uppercase tracking-widest2 text-ember-400 sm:mb-3 sm:text-sm">
                 {String(i + 1).padStart(2, "0")} / {String(numScenesLabel)}
               </p>
-              <h2 className="scene-text font-display text-3xl leading-[1.1] tracking-wide text-stone-50 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
+              <h2 className="scene-text font-display text-2xl leading-[1.15] tracking-wide text-stone-50 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
                 {scene.title}
               </h2>
-              <p className="scene-text mt-3 max-w-md text-sm font-light text-stone-200 sm:mt-4 sm:text-base lg:text-lg">
+              <p className="scene-text mt-2 line-clamp-2 max-w-md text-xs font-light text-stone-200 sm:mt-4 sm:line-clamp-none sm:text-base lg:text-lg">
                 {scene.subtitle}
               </p>
             </div>
