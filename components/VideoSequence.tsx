@@ -150,7 +150,7 @@ export default function VideoSequence() {
           ref={(el) => {
             videoRefs.current[i] = el;
           }}
-          className="absolute inset-0 h-full w-full object-cover will-change-transform"
+          className="absolute inset-0 h-full w-full object-cover object-center will-change-transform"
           src={scene.src}
           muted
           loop
@@ -161,6 +161,9 @@ export default function VideoSequence() {
       ))}
 
       <div className="vignette" />
+
+      {/* Extra bottom gradient for text legibility on phones */}
+      <div className="absolute inset-x-0 bottom-0 z-[5] h-1/2 bg-gradient-to-t from-black/80 via-black/30 to-transparent sm:hidden" />
 
       {/* Watermark cover */}
       <div className="absolute left-[91%] top-[86%] z-30 h-20 w-20 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-md sm:h-28 sm:w-28">
@@ -175,31 +178,31 @@ export default function VideoSequence() {
       </div>
 
       {/* Brand mark */}
-      <div className="absolute left-6 top-6 z-20 flex items-center gap-3 sm:left-10 sm:top-10">
-        <span className="font-display text-2xl tracking-widest2 text-stone-100 sm:text-3xl">
+      <div className="absolute left-5 top-5 z-20 flex items-center gap-3 sm:left-10 sm:top-10">
+        <span className="font-display text-xl tracking-widest2 text-stone-100 sm:text-3xl">
           LA SANTA
         </span>
       </div>
 
       {/* Scene texts */}
-      <div className="absolute inset-0 z-10 flex items-end pb-24 sm:items-center sm:justify-start sm:pb-0">
-        <div className="relative w-full px-6 sm:px-10 lg:px-20">
+      <div className="absolute inset-0 z-10 flex items-end pb-20 sm:items-center sm:justify-start sm:pb-0">
+        <div className="relative w-full px-5 sm:px-10 lg:px-20">
           {scenes.map((scene, i) => (
             <div
               key={scene.title}
               ref={(el) => {
                 textRefs.current[i] = el;
               }}
-              className="absolute max-w-xl"
+              className="absolute max-w-[88%] sm:max-w-xl"
               style={{ position: i === 0 ? "relative" : "absolute" }}
             >
-              <p className="mb-3 text-xs font-medium uppercase tracking-widest2 text-ember-400 sm:text-sm">
+              <p className="mb-2 text-xs font-medium uppercase tracking-widest2 text-ember-400 sm:mb-3 sm:text-sm">
                 {String(i + 1).padStart(2, "0")} / {String(numScenesLabel)}
               </p>
-              <h2 className="scene-text font-display text-4xl leading-[1.05] tracking-wide text-stone-50 sm:text-6xl lg:text-7xl">
+              <h2 className="scene-text font-display text-3xl leading-[1.1] tracking-wide text-stone-50 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
                 {scene.title}
               </h2>
-              <p className="scene-text mt-4 max-w-md text-sm font-light text-stone-300 sm:text-base lg:text-lg">
+              <p className="scene-text mt-3 max-w-md text-sm font-light text-stone-300 sm:mt-4 sm:text-base lg:text-lg">
                 {scene.subtitle}
               </p>
             </div>
@@ -208,7 +211,7 @@ export default function VideoSequence() {
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2 text-xs uppercase tracking-widest2 text-stone-400 sm:bottom-10 sm:left-10">
+      <div className="absolute bottom-5 left-5 z-20 flex items-center gap-2 text-xs uppercase tracking-widest2 text-stone-400 sm:bottom-10 sm:left-10">
         <span className="hidden sm:inline">Desplázate</span>
         <span className="h-8 w-px animate-pulse bg-ember-500" />
       </div>
